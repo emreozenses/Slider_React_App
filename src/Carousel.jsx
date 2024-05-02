@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { shortList,list,longList } from "./data"
 import { GrFormNext } from 'react-icons/gr'
 import { GrFormPrevious } from 'react-icons/gr'
@@ -25,6 +25,14 @@ const Carousel = () => {
     const [currentPerson,setCurrentPerson]=useState(0);
     const [peopleList,setPeopleList] = useState(longList);
 
+    useEffect(()=>{
+      let sliderId=setInterval(()=>{
+        nextSlide();
+      },2000);
+      return ()=>{
+        clearInterval(sliderId);
+      }
+    },[currentPerson])
   return (
     <section className="slider-container">
       {peopleList.map((person,personIndex) => {
