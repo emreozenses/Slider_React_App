@@ -15,7 +15,7 @@ const SlickCarousel = () => {
        slidesToScroll: 1,
        //fade: true --you can use it just one slide
        autoplay: true,
-       autoplaySpeed: 1000,
+       autoplaySpeed: 2000,
        pauseOnHover:true,
      }
   return (
