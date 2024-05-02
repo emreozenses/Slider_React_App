@@ -13,15 +13,14 @@ const Carousel = () => {
     const prevSlide=()=>{};
     const nextSlide = () => {};
 
-    const [peopleList,setPeopleList] = useState(shortList);
-    console.log(list);
-    const [index,setIndex] = useState(0);
+    const [peopleList,setPeopleList] = useState(list);
+
   return (
     <section className="slider-container">
-      {peopleList.map((person) => {
+      {peopleList.map((person,personIndex) => {
         const { id, image, title, name, quote } = person
         return (
-          <article className="slide" key={id}>
+          <article className="slide" style={{transform:`translateX(${100*personIndex}%)`}} key={id}>
             <img src={image} alt={name} className="person-img" />
             <h3 className="name">{name}</h3>
             <h5 className="title">{title}</h5>
